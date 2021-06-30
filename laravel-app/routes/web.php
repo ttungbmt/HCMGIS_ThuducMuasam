@@ -33,7 +33,7 @@ use Spatie\Tags\Tag;
 
 Route::get('/', function () {
     if(Str::contains($_SERVER['HTTP_HOST'], ['hcmgis.vn']) && !isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
-        return redirect('https://thuduc-covid.hcmgis.vn');
+        return redirect('https://thuduc-muasam.hcmgis.vn');
     };
 
     return File::get('vendor/maps/index.html');
