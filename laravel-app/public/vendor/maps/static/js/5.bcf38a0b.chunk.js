@@ -1,0 +1,1 @@
+(this["webpackJsonpfuse-react-app"]=this["webpackJsonpfuse-react-app"]||[]).push([[5],{982:function(t,e,s){"use strict";s.r(e);var a=s(1);e.default=function(){return Object(a.jsx)("div",{className:"p-10",children:'\u0110ang ph\xe1t tri\u1ec3n ... "T\xecm ki\u1ebfm"'})}}}]);

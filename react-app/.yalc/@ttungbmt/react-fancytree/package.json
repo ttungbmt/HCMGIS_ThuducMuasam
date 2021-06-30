@@ -1,0 +1,61 @@
+{
+  "name": "@ttungbmt/react-fancytree",
+  "version": "0.0.1+cb6f531d",
+  "description": "A React wrapper for the Fancy Tree library",
+  "keywords": [
+    "redux",
+    "react",
+    "leaflet",
+    "toolkit",
+    "reducer"
+  ],
+  "repository": "https://github.com/ttungbmt/react-fancytree",
+  "license": "MIT",
+  "author": "Truong Thanh Tung <ttungbmt@gmail.com>",
+  "sideEffects": false,
+  "main": "dist/index.js",
+  "unpkg": "dist/index.umd.js",
+  "module": "dist/index.modern.js",
+  "source": "src/index.js",
+  "types": "dist/index.d.js",
+  "files": [
+    "dist/*.js",
+    "dist/*.js.map",
+    "src"
+  ],
+  "scripts": {
+    "build": "microbundle --no-compress --jsx React.createElement --format cjs,modern",
+    "build:push": "run-s clean build push",
+    "clean": "rm -rf dist/*",
+    "watch": "microbundle watch --jsx React.createElement --format cjs,modern",
+    "watch:push": "run-p watch push:watch",
+    "format": "prettier --write \"src/**/*.js\"",
+    "format:check": "prettier --list-different \"src/**/*.js\" \"docs/*/**.md\"",
+    "packages:upgrade": "yarn upgrade-interactive --latest",
+    "push": "yalc push",
+    "push:watch": "nodemon --watch dist --delay 500ms -x yarn push"
+  },
+  "dependencies": {
+    "clsx": "^1.1.1",
+    "jquery": "^3.6.0",
+    "jquery-ui": "^1.12.1",
+    "jquery.fancytree": "^2.38.0",
+    "lodash": "^4.17.21",
+    "normalizr": "^3.6.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "unstated-next": "^1.1.0",
+    "use-immer": "^0.5.1"
+  },
+  "peerDependencies": {
+    "@ttungbmt/tree-js": "*",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "amdName": "ReactFancytree",
+  "yalcSig": "cb6f531d86fa1d1caa716bd7ec927b34"
+}

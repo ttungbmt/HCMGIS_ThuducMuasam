@@ -1,0 +1,59 @@
+.fancytree-ext-filter-dimm span.fancytree-node span.fancytree-title {
+  color: #c0c0c0;
+  font-weight: lighter;
+}
+.fancytree-ext-filter-dimm tr.fancytree-submatch span.fancytree-title,
+.fancytree-ext-filter-dimm span.fancytree-node.fancytree-submatch span.fancytree-title {
+  color: black;
+  font-weight: normal;
+}
+.fancytree-ext-filter-dimm tr.fancytree-match span.fancytree-title,
+.fancytree-ext-filter-dimm span.fancytree-node.fancytree-match span.fancytree-title {
+  color: black;
+  font-weight: bold;
+}
+.fancytree-ext-filter-hide tr.fancytree-hide,
+.fancytree-ext-filter-hide span.fancytree-node.fancytree-hide {
+  display: none;
+}
+.fancytree-ext-filter-hide tr.fancytree-submatch span.fancytree-title,
+.fancytree-ext-filter-hide span.fancytree-node.fancytree-submatch span.fancytree-title {
+  color: $color-selected;
+  font-weight: bold;
+}
+.fancytree-ext-filter-hide tr.fancytree-match span.fancytree-title,
+.fancytree-ext-filter-hide span.fancytree-node.fancytree-match span.fancytree-title {
+  color: black;
+  font-weight: normal;
+}
+/* Hide expanders if all child nodes are hidden by filter */
+.fancytree-ext-filter-hide-expanders tr.fancytree-match span.fancytree-expander,
+.fancytree-ext-filter-hide-expanders span.fancytree-node.fancytree-match span.fancytree-expander {
+  visibility: hidden;
+}
+.fancytree-ext-filter-hide-expanders tr.fancytree-submatch span.fancytree-expander,
+.fancytree-ext-filter-hide-expanders span.fancytree-node.fancytree-submatch span.fancytree-expander {
+  visibility: visible;
+}
+.fancytree-ext-childcounter span.fancytree-icon,
+.fancytree-ext-filter span.fancytree-icon,
+.fancytree-ext-childcounter span.fancytree-custom-icon,
+.fancytree-ext-filter span.fancytree-custom-icon {
+  position: relative;
+}
+.fancytree-ext-childcounter span.fancytree-childcounter,
+.fancytree-ext-filter span.fancytree-childcounter {
+  color: #fff;
+  background: #FFB049;
+  border: 1px solid white;
+  position: absolute;
+  top: -3px;
+  right: -6px;
+  min-width: 15px;
+  height: 15px;
+  vertical-align: baseline;
+  border-radius: 50%;
+  padding: 2px;
+  text-align: center;
+  font-size: 8px;
+}

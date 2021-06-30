@@ -1,0 +1,9 @@
+//@import "fancytree";
+//@import "fancytree_test";
+@import "fancytree/ui.fancytree";
+@import "perfect_scrollbar";
+
+a.link, a.link:hover, , a:not([role=button])[target=_blank], a:not([role=button])[target=_blank]:hover {
+  background: inherit;
+  border-bottom: none;
+}

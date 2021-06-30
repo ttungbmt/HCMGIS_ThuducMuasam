@@ -1,0 +1,17 @@
+{
+  "version": "v1",
+  "packages": {
+    "@ttungbmt/tree-js": {
+      "signature": "db7f5a3f7b3a843e2e82d912e79e22a9",
+      "link": true
+    },
+    "@ttungbmt/react-fancytree": {
+      "signature": "cb6f531d86fa1d1caa716bd7ec927b34",
+      "link": true
+    },
+    "@ttungbmt/leaflet-search": {
+      "signature": "ecd6c39e673597b8703ae72ed23fc0c8",
+      "link": true
+    }
+  }
+}

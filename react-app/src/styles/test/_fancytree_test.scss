@@ -1,0 +1,240 @@
+.fancytree-title:hover .label-feature-count{
+   display: flex;
+}
+
+.fancytree-title .label-feature-count{
+  display: none;
+}
+
+ul.fancytree-container {
+  border: none!important;
+}
+
+span.fancytree-node {
+  display: flex!important;
+}
+
+span.fancytree-custom-icon {
+  font-size: 16px;
+  color: #FBC02D;
+}
+
+.fa, .fas, .fal, .far {
+  &-icon {
+    font-family: "Font Awesome 5 Pro" !important;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+  }
+}
+
+.fa-icon, .fas-icon {font-weight: 900;}
+.far-icon {font-weight: 400;}
+.fal-icon {font-weight: 300;}
+.fad-icon {
+  position: relative;
+  font-family: "Font Awesome 5 Duotone"!important;
+  font-weight: 900;
+}
+
+span.fancytree-checkbox {
+  background: none!important;
+  cursor: pointer;
+  border-radius: 2px;
+  font-size: 20px;
+  margin-right: 5px;
+  height: auto!important;
+
+  position: relative;
+  border-color: transparent;
+
+  @extend .far-icon;
+  //color: #192d3e;
+  color: #777;
+
+  &:after {
+    content: "\f0c8";
+  }
+
+  &.fancytree-radio {
+    &:after {
+      content: "\f111";
+    }
+
+  }
+}
+
+.fancytree-selected .fancytree-checkbox {
+  @extend .fas-icon;
+  color: #039be5;
+  &:after {
+    content: "\f14a";
+  }
+
+  &.fancytree-radio {
+    @extend .fad-icon;
+
+    &:before {
+      position: absolute;
+      opacity: var(--fa-primary-opacity,1);
+      content: "\f111";
+    }
+
+    &:after {
+      content: "\10f111";
+      opacity: var(--fa-secondary-opacity,.4);
+    }
+  }
+
+
+
+  //border-color: transparent;
+  //@extend .fa-icon;
+  //position: relative;
+
+  //&:after {
+  //  content: "\f14a";
+  //}
+
+  //&.fancytree-radio {
+  //  &:after {
+  //    content: "\10f111";
+  //    opacity: var(--fa-secondary-opacity,.4);
+  //  }
+  //  &:before {
+  //    content: "\f111";
+  //    position: absolute;
+  //    color: var(--fa-primary-color);
+  //    opacity: var(--fa-primary-opacity,1);
+  //  }
+  //}
+}
+
+.fancytree-checkbox:after, .fancytree-partsel.fancytree-selected .fancytree-checkbox:after {
+
+}
+
+.fancytree-icon, .fancytree-checkbox, .fancytree-custom-icon {
+  //margin-top: 5px!important;
+  margin-top: 0!important;
+}
+
+.fancytree-active .fancytree-title {
+  background-color: #f7f7f7!important;
+  border-color: #dedede!important;
+}
+.fancytree-treefocus {
+  span.fancytree-active, span.fancytree-selected {
+    span.fancytree-title {
+      //border-color: #71adea !important;
+    }
+  }
+}
+
+span.fancytree-node:hover span.fancytree-title{
+  border-color: #71adea !important;
+}
+
+span.fancytree-node {
+  margin: 2px 0!important;
+  display: flex!important;
+  align-items: center;
+}
+
+.fancytree-title {
+  padding: 2px 4px!important;
+  border-radius: 2px!important;
+  margin-left: 4px!important;
+}
+
+.fancytree-expander {
+  //margin-top: 7px!important;
+  margin-top: 0!important;
+  display: flex!important;
+  //width: 12px!important;
+
+  @extend .fa-icon;
+  background-image: none!important;
+  color: #777777;
+  font-weight: normal;
+  font-size: 11px;
+}
+
+.fancytree-exp-e, .fancytree-exp-el {
+  .fancytree-expander:after{
+    content: "\f105";
+    align-self: center;
+  }
+}
+
+.fancytree-exp-c, .fancytree-exp-cl {
+  .fancytree-expander:after{
+    content: "\f107";
+    align-self: center;
+  }
+}
+
+.fancytree-has-children.fancytree-ico-ef .fancytree-icon:before{
+  content: "\f07c";
+}
+
+.fancytree-folder {
+  .fancytree-icon {
+    background-image: none!important;
+    color: #FBC02D;
+    @extend .fa-icon;
+    font-size: 17px;
+    &:before {
+      content: "\f07b";
+    }
+  }
+}
+
+//.fancytree-container {
+//  &:not(.fancytree-treefocus) {
+//    .fancytree-title {
+//      &:hover, &.context-menu-active {
+//        background: #eee;
+//      }
+//      background-color: initial;
+//    }
+//  }
+//
+//  .fancytree-title.context-menu-active {
+//    background: #eee;
+//  }
+//}
+//
+//.fancytree-partsel .fancytree-checkbox.fancytree-radio:after, .fancytree-selected .fancytree-checkbox.fancytree-radio:after {
+//  content: "";
+//  top: .1875rem;
+//  left: .1875rem;
+//  width: 0;
+//  height: 0;
+//  border: .3125rem solid;
+//  border-color: inherit;
+//}
+//
+//.fancytree-folder .fancytree-icon {
+//  color: #eb4b3b;
+//}
+//
+//.fancytree-checkbox.fancytree-radio, .fancytree-checkbox.fancytree-radio:after {
+//  border-radius: 50%;
+//}
+//
+//.fancytree-treefocus {
+//  .fancytree-active:not(.fancytree-selected) .fancytree-title{
+//    background-color: #2196f3;
+//    color: white;
+//  }
+//
+//  .fancytree-selected:not(.fancytree-active) .fancytree-title{
+//    background-color: initial!important;
+//    color: initial!important;
+//  }
+//}
+//
+
+

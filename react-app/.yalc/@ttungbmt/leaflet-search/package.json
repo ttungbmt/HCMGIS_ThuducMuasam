@@ -1,0 +1,46 @@
+{
+  "name": "@ttungbmt/leaflet-search",
+  "version": "1.0.0+ecd6c39e",
+  "description": "Adds support for address lookup (a.k.a. geocoding / geoseaching) to Leaflet.",
+  "publishConfig": {
+    "tag": "latest"
+  },
+  "main": "dist/leaflet-search.js",
+  "umd:main": "dist/leaflet-search.umd.js",
+  "module": "dist/leaflet-search.module.js",
+  "unpkg": "dist/leaflet-search.umd.js",
+  "source": "src/index.js",
+  "amdName": "LeafletSearch",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "watch": "microbundle -w --format cjs",
+    "watch:push": "run-p watch push:watch",
+    "build": "microbundle build --format cjs",
+    "build:push": "run-s clean build push",
+    "push": "yalc push",
+    "push:watch": "nodemon --watch dist --delay 1000ms -x yarn push"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "keywords": [
+    "geolocation",
+    "geocoding",
+    "plugins",
+    "leaflet",
+    "geo",
+    "map"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttungbmt/leaflet-search.git"
+  },
+  "author": "Truong Thanh Tung <ttungbmt@gmail.com>",
+  "homepage": "https://github.com/ttungbmt/leaflet-search#readme",
+  "license": "MIT",
+  "dependencies": {
+    "leaflet-geosearch": "^3.2.2",
+    "lodash-es": "^4.17.21"
+  }
+}

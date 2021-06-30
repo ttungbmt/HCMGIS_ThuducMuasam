@@ -1,0 +1,50 @@
+table.fancytree-ext-columnview span.fancytree-node.fancytree-expanded {
+  background-color: #ccc;
+}
+table.fancytree-ext-columnview span.fancytree-node.fancytree-active {
+  background-color: royalblue;
+}
+table.fancytree-ext-columnview tbody tr td {
+  position: relative;
+  border: 1px solid gray;
+  vertical-align: top;
+  overflow: auto;
+}
+table.fancytree-ext-columnview tbody tr td > ul {
+  padding: 0;
+}
+
+table.fancytree-ext-columnview tbody tr td > ul li {
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  -moz-background-clip: border;
+  -moz-background-inline-policy: continuous;
+  -moz-background-origin: padding;
+  background-attachment: scroll;
+  background-color: transparent;
+  background-position: 0px 0px;
+  background-repeat: repeat-y;
+  background-image: none;
+  /* no v-lines */
+  margin: 0;
+}
+table.fancytree-ext-columnview span.fancytree-node {
+  position: relative;
+  /* allow positioning of embedded spans */
+  display: inline-block;
+}
+table.fancytree-ext-columnview span.fancytree-node.fancytree-expanded {
+  background-color: #e0e0e0;
+}
+table.fancytree-ext-columnview span.fancytree-node.fancytree-active {
+  background-color: #cbe8f6;
+}
+table.fancytree-ext-columnview .fancytree-has-children span.fancytree-cv-right {
+  position: absolute;
+  right: 3px;
+  background-position: 0px -80px;
+}
+table.fancytree-ext-columnview .fancytree-has-children span.fancytree-cv-right:hover {
+  background-position: -16px -80px;
+}

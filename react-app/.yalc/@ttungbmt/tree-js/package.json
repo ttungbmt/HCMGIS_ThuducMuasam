@@ -1,0 +1,54 @@
+{
+  "name": "@ttungbmt/tree-js",
+  "version": "0.0.1+db7f5a3f",
+  "description": "Utilities for Tree",
+  "keywords": [
+    "array",
+    "list",
+    "flat",
+    "tree",
+    "model"
+  ],
+  "repository": "https://github.com/ttungbmt/tree-js",
+  "license": "MIT",
+  "author": "Truong Thanh Tung <ttungbmt@gmail.com>",
+  "sideEffects": false,
+  "main": "dist/index.js",
+  "unpkg": "dist/index.umd.js",
+  "module": "dist/index.modern.js",
+  "source": "src/index.js",
+  "types": "dist/index.d.js",
+  "files": [
+    "dist/*.js",
+    "dist/*.js.map",
+    "src"
+  ],
+  "scripts": {
+    "build": "microbundle --no-compress",
+    "build:push": "run-s clean build push",
+    "clean": "rm -rf dist/*",
+    "watch": "microbundle watch",
+    "watch:push": "run-p watch push:watch",
+    "format": "prettier --write \"src/**/*.js\"",
+    "format:check": "prettier --list-different \"src/**/*.js\" \"docs/*/**.md\"",
+    "packages:upgrade": "yarn upgrade-interactive --latest",
+    "push": "yalc push",
+    "push:watch": "nodemon --watch dist --delay 1000ms -x yarn push"
+  },
+  "dependencies": {
+    "flattree": "^0.11.1",
+    "lodash-es": "^4.17.21",
+    "nanoid": "^3.1.22",
+    "performant-array-to-tree": "^1.8.1",
+    "tree-model": "^1.0.7"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "amdName": "TreeJS",
+  "yalcSig": "db7f5a3f7b3a843e2e82d912e79e22a9"
+}

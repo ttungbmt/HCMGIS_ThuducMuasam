@@ -1,0 +1,55 @@
+ul.fancytree-container {
+  font-family: Poppins,Roboto,"Helvetica",Arial,sans-serif!important;
+  border: none!important;
+}
+
+
+//
+// Checkbox icon
+//
+
+.fancytree-checkbox {
+  background: none!important;
+  font-family: "Font Awesome 5 Pro" !important;
+
+  //width: $checkbox-size;
+  //height: $checkbox-size;
+  //border: $checkbox-border-width solid $checkbox-color;
+  //display: inline-block;
+  //text-align: center;
+  //position: relative;
+  //cursor: pointer;
+  //@include border-radius($border-radius-sm);
+
+  // Checker base
+  &:after {
+    content: '';
+    position: absolute;
+  }
+
+  // Grey square in hierarchical select
+  .fancytree-partsel &:after,
+  .fancytree-radio .fancytree-selected &:after {
+    //content: "";
+    //top: (($checkbox-size / 2) - $checkbox-border-width - (($checkbox-size / 2) / 2));
+    //left: (($checkbox-size / 2) - $checkbox-border-width - (($checkbox-size / 2) / 2));
+    //border: (($checkbox-size / 2) / 2) solid;
+    //border-color: inherit;
+    //width: 0;
+    //height: 0;
+  }
+
+  // Add icons
+  .fancytree-selected &:after {
+    //content: $icon-checkbox-tick;
+    //border: 0;
+    //top: ($checkbox-size - $icon-font-size - ($checkbox-border-width * 2)) / 2;
+    //left: ($checkbox-size - $icon-font-size - ($checkbox-border-width * 2)) / 2;
+  }
+
+  // Radio (single select imitation)
+  .fancytree-radio &,
+  .fancytree-radio &:after {
+    //@include border-radius($border-radius-circle);
+  }
+}

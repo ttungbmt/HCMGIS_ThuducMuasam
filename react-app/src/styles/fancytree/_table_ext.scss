@@ -1,0 +1,40 @@
+table.fancytree-ext-table {
+  border-collapse: collapse;
+}
+table.fancytree-ext-table tbody tr.fancytree-focused {
+  background-color: #99DEFD;
+}
+table.fancytree-ext-table tbody tr.fancytree-active {
+  background-color: royalblue;
+}
+table.fancytree-ext-table tbody tr.fancytree-selected {
+  background-color: #99FDDE;
+}
+
+table.fancytree-ext-table {
+  //font-family: tahoma, arial, helvetica;
+  //font-size: 10pt;
+  border-collapse: collapse;
+  /* ext-ariagrid */
+}
+table.fancytree-ext-table span.fancytree-node {
+  display: inline-block;
+  box-sizing: border-box;
+}
+table.fancytree-ext-table td.fancytree-status-merged {
+  text-align: center;
+  font-style: italic;
+  color: #c0c0c0;
+}
+table.fancytree-ext-table tr.fancytree-statusnode-error td.fancytree-status-merged {
+  color: red;
+}
+table.fancytree-ext-table.fancytree-ext-ariagrid.fancytree-cell-mode > tbody > tr.fancytree-active > td {
+  background-color: #eee;
+}
+table.fancytree-ext-table.fancytree-ext-ariagrid.fancytree-cell-mode > tbody > tr > td.fancytree-active-cell {
+  background-color: #cbe8f6;
+}
+table.fancytree-ext-table.fancytree-ext-ariagrid.fancytree-cell-mode.fancytree-cell-nav-mode > tbody > tr > td.fancytree-active-cell {
+  background-color: #3875d7;
+}
