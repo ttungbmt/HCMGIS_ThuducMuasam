@@ -42,24 +42,9 @@ Route::get('/', function () {
 Route::get('update-feature-count', [MapsController::class, 'updateFeatureCount']);
 
 Route::get('/status', function () {
-    $model = \App\Models\CuahangCCHH::find(1);
-    dd($model->phantuyens->map->toArray());
 });
 
 Route::get('/welcome', function () {
-    dd(\App\Support\Directory::noi_ph());
-//    $models = \App\Models\Cabenh::where('phanloai_cl', 'F0')->get();
-//    foreach ($models as $model){
-//        $source = DB::table('nguon_ln')->where('ma_kv', $model->ma_kv)->first();
-//
-//        if($ma_kv = $model->ma_kv && $source){
-//            $model->nguon_ln = $source->nguon_ln;
-//            $model->save();
-//        }
-//    }
-
-//    dd($model->map->toArray());
-//    $hcTps = \App\Models\HcTp::all(['id', 'ma_tp', 'ten_tp']);
     return view('welcome');
 });
 

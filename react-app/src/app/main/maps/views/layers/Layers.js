@@ -129,9 +129,6 @@ function Layers() {
             </AppBar>
 
             {/*<SearchBar />*/}
-            <Box py={1} className="border-b-1 border-gray-300">
-                <Typography style={{color: '#E25141', fontSize: 14}} className="font-semibold text-center">Tổng số ca dương tính (từ ngày 18/5/2021) <span style={{fontSize: 14, color: 'white', background: '#29B6F6', padding: '1px 5px', borderRadius: 5}}>{cabenhsCount}</span></Typography>
-            </Box>
 
             <LayersToolbar/>
             <Box p={1} pt={0.5}>

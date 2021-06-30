@@ -4,7 +4,7 @@ module.exports = function (app) {
     app.use(
         '/api',
         createProxyMiddleware({
-            target: 'http://thuduc-covid.local:88',
+            target: 'http://thuduc-muasam.local:88',
             changeOrigin: true,
         })
     );
