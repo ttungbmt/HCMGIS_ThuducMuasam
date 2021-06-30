@@ -89,12 +89,9 @@ class MapsController extends Controller
 
     public function builder()
     {
-        $count = Cabenh::where('phanloai_cl', 'F0')->count();
-
         return [
             'app' => [
-                'name' => env('APP_NAME', 'Thủ Đức Maps'),
-                'cabenhs_count' => $count
+                'name' => env('APP_NAME', 'Thủ Đức Mua sắm'),
             ],
             'layers' => $this->getLayers(),
             'config' => config('nova-map.config'),
