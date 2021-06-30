@@ -7,7 +7,7 @@ import MapHeader from "./MapHeader";
 import {useSearchBarContext} from "app/components/SearchBar";
 import {useUpdateEffect} from "react-use";
 import {MapOptions} from "@redux-leaflet";
-import MapRangeSlider from "./MapRangeSlider";
+import MapNearby from "./MapNearby";
 
 function MapSearch() {
     const map = useMap()
@@ -31,9 +31,9 @@ function MapContent({mapOptions, layers, loading}) {
             {loading ? <FuseLoading/> : (
                 <MapContainer {...mapOptions}>
                     <MapOptions {...mapOptions}/>
-                    <MapRangeSlider/>
                     <MapSearch/>
                     <MapHeader/>
+                    <MapNearby />
                     {/*<MapResize width={width} height={height}/>*/}
                     <MapEvents/>
                     {layers.map(lp => <Layer key={lp.id} {...lp}/>)}

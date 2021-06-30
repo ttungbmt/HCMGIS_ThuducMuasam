@@ -5,6 +5,7 @@ use App\Http\Controllers\API\CORSController;
 use App\Http\Controllers\API\CuahangCCHHController;
 use App\Http\Controllers\API\MapsController;
 use App\Http\Controllers\API\PhongtoaPtController;
+use App\Http\Controllers\API\SearchController;
 use App\Http\Controllers\API\ThongkeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('search/nearby', [SearchController::class, 'nearby']);
+
 Route::get('cabenhs', [CabenhController::class, 'index'])->middleware('web');
 Route::get('cuahang_cchh', [CuahangCCHHController::class, 'index'])->middleware('web');
 Route::get('cuahang_cchh/voronoi', [CuahangCCHHController::class, 'voronoi'])->middleware('web');

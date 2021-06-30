@@ -12,25 +12,29 @@ const MapsAppConfig = {
 			path: '/maps/layers',
 			component: lazy(() => import('./views/layers/Layers'))
 		},
+		// {
+		// 	path: '/maps/search',
+		// 	component: lazy(() => import('./views/search/Search'))
+		// },
+		// {
+		// 	path: '/maps/stats',
+		// 	component: lazy(() => import('./views/stats/Stats'))
+		// },
+		// {
+		// 	path: '/maps/dientien-covid/detail',
+		// 	component: lazy(() => import('./views/dientienCovid/Detail'))
+		// },
+		// {
+		// 	path: '/maps/dientien-covid',
+		// 	component: lazy(() => import('./views/dientienCovid/DientienCovid')),
+		// },
+		// {
+		// 	path: '/maps/sodo-qh',
+		// 	component: lazy(() => import('./views/sodoQh/sodoQh'))
+		// },
 		{
-			path: '/maps/search',
-			component: lazy(() => import('./views/search/Search'))
-		},
-		{
-			path: '/maps/stats',
-			component: lazy(() => import('./views/stats/Stats'))
-		},
-		{
-			path: '/maps/dientien-covid/detail',
-			component: lazy(() => import('./views/dientienCovid/Detail'))
-		},
-		{
-			path: '/maps/dientien-covid',
-			component: lazy(() => import('./views/dientienCovid/DientienCovid')),
-		},
-		{
-			path: '/maps/sodo-qh',
-			component: lazy(() => import('./views/sodoQh/sodoQh'))
+			path: '/maps/near-by',
+			component: lazy(() => import('./views/nearBy/NearBy'))
 		},
 		{
 			path: '/maps',

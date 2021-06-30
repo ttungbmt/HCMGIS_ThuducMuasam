@@ -167,7 +167,7 @@
         "webpack-bundle-analyzer": "^4.4.2"
     },
     "scripts": {
-        "start": "craco start",
+        "start": "set HTTPS=true&&craco start",
         "build": "cross-env GENERATE_SOURCEMAP=false craco build",
         "test": "craco test --env=node",
         "eject": "craco eject",

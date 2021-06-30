@@ -6,17 +6,9 @@ import {unixDate, today} from "app/utils/moment";
 import {useUpdateEffect} from "react-use";
 
 const initialState = {
-    dientienCovid: {
+    nearbyForm: {
         defaultValues: {
-            min_date: unixDate(),
-            max_date: unixDate(),
-            from_date: '18/05/2021',
-            to_date: today(),
-            timer_index: 0,
-            view: 'diadiem',
-            range: [
-                // unixDate(), unixDate()
-            ]
+
         },
         values: {
 
@@ -41,6 +33,11 @@ function reducer(state, {type, payload}) {
                 state[payload.name].values[key] = value
             })
             return;
+        case 'updateData':
+            map(payload.data, (value, key) => {
+                state[payload.name].data[key] = value
+            })
+            return;
         case 'setData':
             state[payload.name].data = payload.data
             return;
@@ -60,22 +57,24 @@ function useMForm() {
     const getFormNames = () => keys(state)
     const initialize = (name, data) => dispatch({type: 'initialize', payload: {name, data}})
     const reset = (name) => dispatch({type: 'reset', payload: name})
-    const resetData = (name) => dispatch({type: 'resetData', payload: name})
+    const resetFormData = (name) => dispatch({type: 'resetData', payload: name})
 
     const setFormValues = (name, values) => dispatch({type: 'setValues', payload: {name, values}})
     const updateFormValues = (name, values) => dispatch({type: 'updateValues', payload: {name, values}})
+    const updateFormData = (name, data) => dispatch({type: 'updateData', payload: {name, data}})
     const setFormData = (name, data) => dispatch({type: 'setData', payload: {name, data}})
 
-    return { state, dispatch, getFormDefaultValues, getFormData, getFormValues, setFormValues, setFormData, updateFormValues, reset, resetData };
+    return { state, dispatch, getFormDefaultValues, getFormData, getFormValues, setFormValues, setFormData, updateFormValues, updateFormData, reset, resetFormData };
 }
 
 export const useForm = (name) => {
-    const {getFormData, getFormValues, updateFormValues, reset, resetData, setFormValues} = useMFormContext()
+    const {getFormData, getFormValues, updateFormValues, reset, setFormValues, updateFormData, resetFormData} = useMFormContext()
     return {
         values: getFormValues(name),
         data: getFormData(name),
         setValues: (values) => setFormValues(name, values),
         updateValues: (values) => updateFormValues(name, values),
+        updateData: (data) => updateFormData(name, data),
         reset: () => reset(name),
         resetData: () => resetData(name),
     }

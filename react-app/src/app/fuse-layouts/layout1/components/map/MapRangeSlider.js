@@ -22,7 +22,7 @@ const renderMarkers = (items, range) => orderBy(items.filter(v => {
 
     const icon = L.divIcon({
         className: 'custom-div-icon',
-        html: `<div class='marker-number absolute' style="color: white; background: red; padding: 0px 4px;border-radius: 5px 5px;border: 2px solid white;">${v.ma_kv}</div>`,
+        html: `<div class='marker-number absolute' style="color: white; background: red; padding: 0 4px;border-radius: 5px 5px;border: 2px solid white;">${v.ma_kv}</div>`,
     });
 
     return (
