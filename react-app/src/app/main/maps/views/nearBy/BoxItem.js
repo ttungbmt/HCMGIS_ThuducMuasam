@@ -78,7 +78,7 @@ function BoxItem({index, data, values}) {
                     <div className="pb-4"><span className="font-medium">Hình thức giao trực tuyến:</span> {data.ht_giao_tt}</div>
                     {/*<div className="pb-4"><span className="font-medium">Điện thoại người liên hệ:</span> {data.dienthoai}</div>*/}
                     {/*<div className="pb-4"><span className="font-medium">Thông tin liên hệ:</span> {data.tt_lienhe}</div>*/}
-                    <div className="pb-4"><span className="font-medium">Phường xã:</span> {data.tenphuong}</div>
+                    <div className="pb-4"><span className="font-medium">Phường:</span> {data.tenphuong}</div>
                     <div className="pb-4"><span className="font-medium">Phân tuyến hàng hóa:</span> {data.tuyen_cc}</div>
                     {data.ghichu && <div><span className="font-medium">Ghi chú:</span> {data.ghichu}</div>}
                 </Box>
