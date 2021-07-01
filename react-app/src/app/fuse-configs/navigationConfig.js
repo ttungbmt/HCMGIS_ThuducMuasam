@@ -5,25 +5,18 @@ i18next.addResourceBundle('en', 'navigation', en);
 
 const navigationConfig = [
 	{
+		id: 'stats',
+		title: 'Vị trí của bạn',
+		type: 'group',
+		icon: 'near_me_outlined',
+		url: '/maps/near-by',
+	},
+	{
 		id: 'map',
 		title: 'Lớp dữ liệu',
 		type: 'group',
 		icon: 'layers',
 		url: '/maps/layers',
-	},
-	// {
-	// 	id: 'search',
-	// 	title: 'Tìm kiếm',
-	// 	type: 'group',
-	// 	icon: 'search',
-	// 	url: '/maps/search',
-	// },
-	{
-		id: 'stats',
-		title: 'Tìm kiếm lân cận',
-		type: 'group',
-		icon: 'near_me_outlined',
-		url: '/maps/near-by',
 	},
 	{
 		id: 'portal',

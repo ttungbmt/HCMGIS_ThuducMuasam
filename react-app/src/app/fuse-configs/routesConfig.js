@@ -15,7 +15,7 @@ const routes = [
 	...FuseUtils.generateRoutesFromConfigs(routeConfigs),
 	{
 		path: '/',
-		component: () => <Redirect to="/maps" />
+		component: () => <Redirect to="/maps/near-by" />
 	}
 ];
 

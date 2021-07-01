@@ -19,7 +19,7 @@ class SearchController extends Controller
         $query = DB::table('cuahang_cchh')
             ->selectRaw("ten_ch, diachi, loaihinh, tuyen_cc, tenphuong, tg_hoatdong, dienthoai, ht_giao_tt, tt_lienhe, ghichu, ST_AsGeoJSON(geom) geometry, ST_Distance ( geom::geography, '{$point}'::geography ) AS distance")
             ->where('status', '<>', 0)
-            ->orderByRaw("geom <-> '{$point}'::geometry ")->limit(10);
+            ->orderByRaw("geom <-> '{$point}'::geometry ")->limit(20);
 
         $data = $query->get()->map(function ($i) use($danhmuc){
             $i->geometry = json_decode($i->geometry, true);

@@ -129,7 +129,6 @@ function Layers() {
                 </Toolbar>
             </AppBar>
 
-            <Alert severity="error">Khuyến cáo người dân thực hiện việc mua sắm bằng hình thức trực tuyến trong thời gian này!</Alert>
             {/*<SearchBar />*/}
 
             <LayersToolbar/>

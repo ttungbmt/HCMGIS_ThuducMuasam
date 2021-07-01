@@ -35,6 +35,13 @@ function MapNearby() {
         html: `<div class='marker-number absolute' style="top: -3px; left: -3px; background: #2A93EE; width: 17px; height: 17px;border-radius: 50%;border: 3px solid white;"></div>`,
     })
 
+    const eventHandlers = {
+        dragend: ({target}) => {
+            const latlng = target.getLatLng()
+            $emitter.emit('marker/dragend', [latlng.lat, latlng.lng])
+        }
+    }
+
     return (
         <Fragment>
             {data.items.map((v, k) => {
@@ -47,7 +54,7 @@ function MapNearby() {
                 return <Marker key={k} position={toCenter(v.geometry)} icon={icon}/>
             })}
 
-            <Marker position={position} icon={userIcon}>
+            <Marker position={position} icon={userIcon} draggable={true} eventHandlers={eventHandlers}>
                 <Popup><div className="pr-10"><span className="font-semibold">Tọa độ:</span> {position.join(', ')}</div></Popup>
             </Marker>
 

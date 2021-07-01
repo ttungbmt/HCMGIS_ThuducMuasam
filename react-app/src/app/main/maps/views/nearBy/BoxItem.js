@@ -34,7 +34,7 @@ function BoxItem({index, data, values}) {
                 <Box pl={1}>
                     <Box className="text-blue-400 font-medium" pb={0.5}>
                         <Box>
-                            {data.ten_ch} <span className="pl-3 text-red-500 text-xs">{data.distance}</span>
+                            {data.ten_ch} <span className="pl-3 text-red-500 text-xs">~ {data.distance}</span>
                         </Box>
                     </Box>
                     <Box className="text-xs text-gray-600" pb={1.2}>

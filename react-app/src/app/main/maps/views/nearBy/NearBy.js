@@ -1,7 +1,7 @@
 import {useGeolocation} from 'react-use';
 import {FormProvider, useForm} from "react-hook-form";
 import {Box, Button} from "@material-ui/core";
-import React, {Fragment, useEffect} from "react";
+import React, {Fragment, useEffect, useState} from "react";
 import {InputField, useMFormContext, useSyncForm} from "@form";
 import axios from 'axios'
 import List from "@material-ui/core/List";
@@ -10,31 +10,51 @@ import Divider from "@material-ui/core/Divider";
 import {isEmpty} from "lodash";
 import {toLatLng} from "@redux-leaflet";
 import BoxItem from "./BoxItem";
+import Alert from "@material-ui/lab/Alert";
+import $emitter from "app/utils/eventEmitter";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 export const formName = 'nearbyForm'
 
 export default function () {
+    const [loading, setLoading] = useState(false)
     const {latitude, longitude} = useGeolocation();
     const methods = useForm({
         mode: 'onChange',
     });
     const {watch, control, setValue, getValues} = methods
     const formValues = watch();
-    const {setFormData, getFormData, resetFormData} = useMFormContext()
+    const {setFormData, getFormData, resetFormData, getFormValues} = useMFormContext()
 
     useSyncForm(formName, formValues)
 
     useEffect(() => {
-        if (latitude && longitude) setValue('latlng', `${latitude}, ${longitude}`)
+        if (latitude && longitude) {
+            setValue('latlng', `${latitude}, ${longitude}`)
+            onSubmit()
+        }
     }, [latitude, longitude])
+
+    useEffect(() => {
+        $emitter.on('marker/dragend', (latlng) => {
+            setValue('latlng', latlng.join(','))
+            onSubmit()
+        })
+
+        return () => {
+            $emitter.off('marker/dragend')
+        }
+    }, [])
 
     const onSubmit = async () => {
         const values = getValues()
+        setLoading(true)
         const {data} = await axios.get('/api/search/nearby', {params: {location: values.latlng.split(',').map(v => v.trim()).join(',')}})
 
         if (data.status === 'OK') {
             setFormData(formName, {items: data.data})
         }
+        setLoading(false)
     }
 
     const data = getFormData(formName)
@@ -53,13 +73,16 @@ export default function () {
 
     return (
         <Box>
-            <Box className="flex mb-6" style={{background: 'url(https://maps.hcmgis.vn/core/themes/maps/assets/img/bando_02.png) no-repeat 150px 0 #f9f9f9', height: 50}}>
+            <Box className="flex" style={{background: 'url(https://maps.hcmgis.vn/core/themes/maps/assets/img/bando_02.png) no-repeat 150px 0 #f9f9f9', height: 50}}>
                 <div className="flex pl-20 self-center">
-                    <div className="uppercase font-semibold" style={{color: '#0D9FE6', fontSize: 16}}>Tìm kiếm lân cận</div> <div className="pl-6 self-center" style={{color: '#EA5628', fontSize: 11}}> > 10 đối tượng</div>
+                    <div className="uppercase font-semibold" style={{color: '#0D9FE6', fontSize: 16}}>Điểm mua sắm gần nhất</div> <div className="pl-6 self-center" style={{color: '#EA5628', fontSize: 11}}> > 20 đối tượng</div>
                 </div>
             </Box>
+            <Alert severity="error">Khuyến cáo người dân thực hiện việc mua sắm bằng hình thức trực tuyến trong thời gian này!</Alert>
+            {loading && <LinearProgress />}
+
             <FormProvider {...methods}>
-                <Box px={1} className="flex">
+                <Box mt={1.5} px={1} className="flex">
                     <InputField name="latlng" label="Tọa độ định vị" shrink fullWidth/>
                     <Box className="ml-4 self-center">
 
@@ -76,6 +99,7 @@ export default function () {
                     )}
                 </Box>
             </FormProvider>
+
 
             {!isEmpty(data.items) && (
                 <List>
