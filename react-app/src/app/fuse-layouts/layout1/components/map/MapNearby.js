@@ -34,7 +34,7 @@ function MapNearby() {
 
     const userIcon = L.divIcon({
         className: 'custom-div-icon',
-        html: `<div class='marker-number absolute' style="top: -4px; left: -10px; background: #2A93EE; width: 30px; height: 30px;border-radius: 50%;border: 3px solid white;"><i class="far fa-user text-white" style="padding: 5px 7px;"></i></div>`,
+        html: `<div class='marker-number absolute' style="top: -4px; left: -10px; background: #d83945; width: 30px; height: 30px;border-radius: 50%;border: 3px solid white;"><i class="far fa-user text-white" style="padding: 5px 7px;"></i></div>`,
     })
 
     const eventHandlers = {

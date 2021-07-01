@@ -25,6 +25,7 @@ import {get} from "lodash";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Hidden from "@material-ui/core/Hidden";
+import ThongbaoDialog from "app/main/maps/views/nearBy/ThongbaoDialog";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -57,6 +58,8 @@ function Layout1(props) {
 
     return (
         <MFormProvider>
+            <ThongbaoDialog />
+
             <SearchBarProvider>
                 <div id="fuse-layout" className={clsx(classes.root, config.mode, 'w-full flex')}>
                     {config.leftSidePanel.display && <LeftSideLayout1/>}

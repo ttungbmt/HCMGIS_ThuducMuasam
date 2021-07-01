@@ -3,7 +3,7 @@ import {ListItem, ListItemAvatar, Avatar, Box, Divider} from "@material-ui/core"
 import {toLatLng} from "@redux-leaflet";
 import {useDispatch} from "react-redux";
 import $emitter from 'app/utils/eventEmitter'
-import {includes} from 'lodash'
+import {includes, isEmpty} from 'lodash'
 
 function BoxItem({index, data, values}) {
     const dispatch = useDispatch()
@@ -35,12 +35,13 @@ function BoxItem({index, data, values}) {
         <Box>
             <ListItem alignItems="flex-start" button className="py-10" onClick={onShowMarker}>
                 <ListItemAvatar>
-                    <Avatar alt="Remy Sharp" src="http://thuduc-covid.hcmgis.vn/storage/icons/sieuthi_pt.png"/>
+                    <Avatar src={!isEmpty(data.ht_giao_tt) ? "http://thuduc-covid.hcmgis.vn/storage/icons/sieuthi_pt.png" : 'https://thuduc-muasam.hcmgis.vn/storage/icons/icon_shopping.png'}/>
                 </ListItemAvatar>
                 <Box pl={1}>
                     <Box className="text-blue-400 font-medium" pb={0.5}>
-                        <Box>
-                            {data.ten_ch} <span className="pl-3 text-red-500 text-xs">~ {data.distance}</span>
+                        <Box className="flex">
+                            <Box className="pr-2">{index+1}.</Box>
+                            <Box>{data.ten_ch} <span className="pl-3 text-red-500 text-xs">~ {data.distance}</span></Box>
                         </Box>
                     </Box>
                     <Box className="text-xs text-gray-600" pb={1.2}>

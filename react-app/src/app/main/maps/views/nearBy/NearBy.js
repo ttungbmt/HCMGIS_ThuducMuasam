@@ -13,6 +13,7 @@ import BoxItem from "./BoxItem";
 import Alert from "@material-ui/lab/Alert";
 import $emitter from "app/utils/eventEmitter";
 import LinearProgress from "@material-ui/core/LinearProgress";
+import ThongbaoDialog from "./ThongbaoDialog";
 
 export const formName = 'nearbyForm'
 
@@ -56,9 +57,7 @@ export default function () {
             setFormData(formName, {items: data.data})
             let features = data.data.map(v => ({type: 'Feature', geometry: v.geometry}))
             features.push(toFeature(latlng))
-            setTimeout(() => {
-                $emitter.emit('map/setBounds', features)
-            }, 300)
+            setTimeout(() => $emitter.emit('map/setBounds', features), 300)
         }
         setLoading(false)
     }
@@ -79,12 +78,12 @@ export default function () {
 
     return (
         <Box>
+
             <Box className="flex" style={{background: 'url(https://maps.hcmgis.vn/core/themes/maps/assets/img/bando_02.png) no-repeat 150px 0 #f9f9f9', height: 50}}>
                 <div className="flex pl-20 self-center">
                     <div className="uppercase font-semibold" style={{color: '#0D9FE6', fontSize: 16}}>Điểm mua sắm gần nhất</div> <div className="pl-6 self-center" style={{color: '#EA5628', fontSize: 11}}> > 20 đối tượng</div>
                 </div>
             </Box>
-            <Alert severity="error">Khuyến cáo người dân thực hiện việc mua sắm bằng hình thức trực tuyến trong thời gian này!</Alert>
             {loading && <LinearProgress />}
 
             <FormProvider {...methods}>
