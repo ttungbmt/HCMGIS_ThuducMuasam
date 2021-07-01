@@ -42,8 +42,14 @@ export default function () {
             onSubmit()
         })
 
+        $emitter.on('map/contextmenu', ({latlng}) => {
+            setValue('latlng', [latlng.lat, latlng.lng].join(','))
+            onSubmit()
+        })
+
         return () => {
             $emitter.off('marker/dragend')
+            $emitter.off('map/contextmenu')
         }
     }, [])
 
