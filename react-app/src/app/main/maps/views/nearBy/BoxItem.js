@@ -75,7 +75,7 @@ function BoxItem({index, data, values}) {
             {toggle && (
                 <Box mx={4} my={1} className="border-dashed border-2 border-light-gray-500 px-6 py-6 text-xs">
                     <div className="pb-4"><span className="font-medium">Thời gian hoạt động:</span> {data.tg_hoatdong}</div>
-                    <div className="pb-4"><span className="font-medium">Hình thức giao trực tuyến:</span> {data.ht_giao_tt}</div>
+                    <div className="pb-4"><span className="font-medium">Hình thức giao hàng trực tuyến:</span> {data.ht_giao_tt}</div>
                     {/*<div className="pb-4"><span className="font-medium">Điện thoại người liên hệ:</span> {data.dienthoai}</div>*/}
                     {/*<div className="pb-4"><span className="font-medium">Thông tin liên hệ:</span> {data.tt_lienhe}</div>*/}
                     <div className="pb-4"><span className="font-medium">Phường:</span> {data.tenphuong}</div>
