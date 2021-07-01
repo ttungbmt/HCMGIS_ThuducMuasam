@@ -49,11 +49,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         parent::boot();
 
-        Cabenh::observe(CabenhObserver::class);
-        PhongtoaPt::observe(PhongtoaPtObserver::class);
-        QuanhePivot::observe(QuanhePivotObserver::class);
         MenuItem::observe(MenuItemObserver::class);
-        CabenhCn::observe(CabenhCnObserver::class);
 
         app(\Larabase\Settings\General::class)->boot();
 
@@ -98,11 +94,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-            new PhanloaiCl,
-            new Congbo,
-            new CabenhPerDay,
-            new XetnghiemPerDay,
-            new Hoiphuc,
             new NewUser,
         ];
     }

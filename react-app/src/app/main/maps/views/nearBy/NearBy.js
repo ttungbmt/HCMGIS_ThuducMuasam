@@ -5,19 +5,20 @@ import React, {useEffect, useState} from "react";
 import {InputField, useMFormContext, useSyncForm} from "@form";
 import axios from 'axios'
 import List from "@material-ui/core/List";
-
 import Divider from "@material-ui/core/Divider";
 import {isEmpty, toNumber} from "lodash";
-import {toLatLng, toFeature} from "@redux-leaflet";
+import {toLatLng, toFeature, strToLatLng} from "@redux-leaflet";
 import BoxItem from "./BoxItem";
-import Alert from "@material-ui/lab/Alert";
 import $emitter from "app/utils/eventEmitter";
 import LinearProgress from "@material-ui/core/LinearProgress";
-import ThongbaoDialog from "./ThongbaoDialog";
+import {setBounds} from "@redux-leaflet/store/config/config.actions";
+import {useDispatch} from "react-redux";
+
 
 export const formName = 'nearbyForm'
 
 export default function () {
+    const dispatch = useDispatch()
     const [loading, setLoading] = useState(false)
     const {latitude, longitude} = useGeolocation();
     const methods = useForm({
@@ -59,32 +60,20 @@ export default function () {
         const {data} = await axios.get('/api/search/nearby', {params: {location: values.latlng.split(',').map(v => v.trim()).join(',')}})
 
         if (data.status === 'OK') {
-            const latlng = values.latlng.split(',').map(v => toNumber(v.trim()))
+            const latlng = strToLatLng(values.latlng)
             setFormData(formName, {items: data.data})
             let features = data.data.map(v => ({type: 'Feature', geometry: v.geometry}))
             features.push(toFeature(latlng))
-            setTimeout(() => $emitter.emit('map/setBounds', features), 300)
+            setTimeout(() => dispatch(setBounds(features)), 300)
         }
         setLoading(false)
     }
 
     const data = getFormData(formName)
 
-    const onShowMore = (e, item) => {
-        e.stopPropagation();
-        console.log(item)
-    }
-
-    const onDirection = (e, item) => {
-        e.stopPropagation();
-        const values = getValues()
-        const latlng = toLatLng(item.geometry)
-        window.open(`https://www.google.com/maps/dir/${values.latlng}/${latlng.lat},${latlng.lng}`)
-    }
 
     return (
         <Box>
-
             <Box className="flex" style={{background: 'url(https://maps.hcmgis.vn/core/themes/maps/assets/img/bando_02.png) no-repeat 150px 0 #f9f9f9', height: 50}}>
                 <div className="flex pl-20 self-center">
                     <div className="uppercase font-semibold" style={{color: '#0D9FE6', fontSize: 16}}>Điểm mua sắm gần nhất</div> <div className="pl-6 self-center" style={{color: '#EA5628', fontSize: 11}}> > 20 đối tượng</div>
@@ -97,7 +86,7 @@ export default function () {
                     <InputField name="latlng" label="Vị trí của tôi" shrink fullWidth/>
                 </Box>
                 <Box pb={1} className="flex justify-center">
-                    <Button variant="outlined" color="primary" style={{width: 100}} onClick={onSubmit}>
+                    <Button variant="outlined" color="primary" onClick={onSubmit}>
                         Tìm kiếm
                     </Button>
                     {!isEmpty(data.items) && (

@@ -17,7 +17,7 @@ class SearchController extends Controller
         $location = collect(explode(',',request()->input('location')))->reverse()->join(' ');
         $point = "SRID=4326;POINT({$location})";
         $query = DB::table('cuahang_cchh')
-            ->selectRaw("ten_ch, diachi, loaihinh, tuyen_cc, tenphuong, tg_hoatdong, dienthoai, ht_giao_tt, tt_lienhe, ghichu, web_shopping, app_shopping, hotline_shopping, ST_AsGeoJSON(geom) geometry, ST_Distance ( geom::geography, '{$point}'::geography ) AS distance")
+            ->selectRaw("ten_ch, diachi, loaihinh, tuyen_cc, tenphuong, tg_hoatdong, dienthoai, ht_giao_tt, tt_lienhe, ghichu, web_shopping, app_shopping, hotline_shopping, hanghoa, ST_AsGeoJSON(geom) geometry, ST_Distance ( geom::geography, '{$point}'::geography ) AS distance")
             ->where('status', '<>', 0)
             ->orderByRaw("geom <-> '{$point}'::geometry ")->limit(20);
 
@@ -36,7 +36,7 @@ class SearchController extends Controller
             'status' => 'OK',
             'data' => $data,
             'meta' => [
-
+                
             ]
         ];
     }

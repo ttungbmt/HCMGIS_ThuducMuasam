@@ -9,7 +9,7 @@ const configSlice = createSlice({
 		loading: true,
 		style: { width: '100%', height: '100%', backgroundColor: 'white' },
 		center: [10.804476, 106.639384],
-		zoom: 10
+		zoom: 10,
 	},
 	reducers: {
 		setCenter: (state, { payload }) => {
@@ -17,6 +17,9 @@ const configSlice = createSlice({
 		},
 		setZoom: (state, { payload }) => {
 			state.zoom = payload;
+		},
+		setBounds: (state, { payload }) => {
+			state.bounds = payload;
 		},
 		setConfig: (state, { payload }) => {
 			map(payload, (value, name) => state[name] = value);

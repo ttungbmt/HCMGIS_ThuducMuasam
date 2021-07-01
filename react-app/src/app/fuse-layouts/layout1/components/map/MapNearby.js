@@ -4,7 +4,7 @@ import $emitter from 'app/utils/eventEmitter'
 import {useForm} from "@form";
 import {formName} from  'app/main/maps/views/nearBy/NearBy'
 import {isEmpty, toNumber} from "lodash";
-import L, {ExtraMarkers, geoJSON} from 'leaflet'
+import L, {ExtraMarkers} from 'leaflet'
 
 function MapNearby() {
     const map = useMap()
@@ -19,12 +19,10 @@ function MapNearby() {
         })
 
         $emitter.on('marker/selected', (index) => setSelected(index))
-        $emitter.on('map/setBounds', (features) => map.fitBounds(geoJSON(features).getBounds()))
 
         return () => {
             $emitter.off('map/flyTo')
             $emitter.off('marker/selected')
-            $emitter.off('marker/setBounds')
         }
     }, [])
 
@@ -53,10 +51,10 @@ function MapNearby() {
                     innerHTML: `<div class="text-white font-bold" style="padding-top: 8px; font-size: 14px">${k+1}</div>`
                 });
 
-                return <Marker key={k} position={toCenter(v.geometry)} icon={icon}/>
+                return <Marker key={k} position={toCenter(v.geometry)} icon={icon} riseOnHover={true}/>
             })}
 
-            <Marker position={position} icon={userIcon} draggable={true} eventHandlers={eventHandlers}>
+            <Marker position={position} icon={userIcon} draggable={true} eventHandlers={eventHandlers} riseOnHover={true}>
                 <Popup><div className="pr-10"><span className="font-semibold">Tọa độ:</span> {position.join(', ')}</div></Popup>
             </Marker>
 

@@ -1,5 +1,5 @@
 import {getCoords} from  '@turf/invariant'
-import {GeoJSON, marker} from 'leaflet'
+import {geoJSON, GeoJSON, marker} from 'leaflet'
 
 export const toLatLng = (geometry) => GeoJSON.coordsToLatLng(getCoords(geometry))
 
@@ -10,3 +10,6 @@ export const toCenter = (geometry) => {
 	return [latlng.lat, latlng.lng]
 }
 
+export const strToLatLng = (str) => str.split(',').map(v => parseFloat(v))
+
+export const toBounds = (features) => geoJSON(features).getBounds()

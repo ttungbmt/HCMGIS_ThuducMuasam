@@ -1,6 +1,6 @@
 import React, {Fragment, memo, useState} from "react";
 import {ListItem, ListItemAvatar, Avatar, Box, Divider} from "@material-ui/core";
-import {toLatLng} from "@redux-leaflet";
+import {toLatLng, strToLatLng} from "@redux-leaflet";
 import {useDispatch} from "react-redux";
 import $emitter from 'app/utils/eventEmitter'
 import {includes, isEmpty} from 'lodash'
@@ -77,8 +77,7 @@ function BoxItem({index, data, values}) {
                 <Box mx={4} my={1} className="border-dashed border-2 border-light-gray-500 px-6 py-6 text-xs">
                     <div className="pb-4"><span className="font-medium">Thời gian hoạt động:</span> {data.tg_hoatdong}</div>
                     <div className="pb-4"><span className="font-medium">Hình thức giao hàng trực tuyến:</span> {data.ht_giao_tt}</div>
-                    {/*<div className="pb-4"><span className="font-medium">Điện thoại người liên hệ:</span> {data.dienthoai}</div>*/}
-                    {/*<div className="pb-4"><span className="font-medium">Thông tin liên hệ:</span> {data.tt_lienhe}</div>*/}
+                    <div className="pb-4"><span className="font-medium">Danh mục hàng hóa:</span> {data.hanghoa}</div>
                     <div className="pb-4"><span className="font-medium">Phường:</span> {data.tenphuong}</div>
                     <div className="pb-4"><span className="font-medium">Phân tuyến hàng hóa:</span> {data.tuyen_cc}</div>
                     {data.ghichu && <div><span className="font-medium">Ghi chú:</span> {data.ghichu}</div>}
