@@ -18,6 +18,7 @@ import Badge from "@material-ui/core/Badge";
 import {Menu} from "app/components";
 import {SearchBar, SearchBarProvider} from "app/components/SearchBar";
 import {toggleQuickPanelLayout} from "app/fuse-layouts/shared-components/quickPanel/store/stateSlice";
+import Alert from "@material-ui/lab/Alert";
 
 
 const useStyles = makeStyles({
@@ -128,6 +129,7 @@ function Layers() {
                 </Toolbar>
             </AppBar>
 
+            <Alert severity="error">Khuyến cáo người dân thực hiện việc mua sắm bằng hình thức trực tuyến trong thời gian này!</Alert>
             {/*<SearchBar />*/}
 
             <LayersToolbar/>
