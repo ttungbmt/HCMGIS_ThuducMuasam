@@ -83,7 +83,7 @@ export default function () {
 
             <FormProvider {...methods}>
                 <Box mt={1.5} px={1} className="flex">
-                    <InputField name="latlng" label="Tọa độ định vị" shrink fullWidth/>
+                    <InputField name="latlng" label="Vị trí của tôi" shrink fullWidth/>
                     <Box className="ml-4 self-center">
 
                     </Box>
