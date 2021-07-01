@@ -46,7 +46,7 @@ class PhantuyenHH extends Resource
     /**
      * Get the fields displayed by the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function fields(Request $request)
@@ -61,10 +61,13 @@ class PhantuyenHH extends Resource
             Text::make(__('app.diachi'), 'diachi'),
             ...Helper::dynamicHcFields(['ma_tp' => 'nullable', 'maquan' => 'nullable', 'maphuong' => 'nullable']),
             Text::make(__('app.khupho'), 'khupho'),
-            Text::make(__('app.to_dp'), 'to_dp')->rules([Rule::unique('phantuyen_hh')
-                ->where('to_dp', $request->input('to_dp'))
-                ->where('khupho', $request->input('khupho'))
-                ->where('maphuong', $request->input('maphuong'))
+            Text::make(__('app.to_dp'), 'to_dp')->rules([Rule::unique('phantuyen_hh')->where(function ($query) use ($request) {
+                if ($request->input('to_dp')) {
+                    $query->where('to_dp', $request->input('to_dp'));
+                    $query->where('khupho', $request->input('khupho'));
+                    $query->where('maphuong', $request->input('maphuong'));
+                } else $query->whereRaw('1=0');
+            })
             ]),
 
         ];
@@ -73,7 +76,7 @@ class PhantuyenHH extends Resource
     /**
      * Get the cards available for the request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function cards(Request $request)
@@ -84,7 +87,7 @@ class PhantuyenHH extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function filters(Request $request)
@@ -95,7 +98,7 @@ class PhantuyenHH extends Resource
     /**
      * Get the lenses available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function lenses(Request $request)
@@ -106,7 +109,7 @@ class PhantuyenHH extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function actions(Request $request)

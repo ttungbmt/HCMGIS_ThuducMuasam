@@ -27,13 +27,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('search/nearby', [SearchController::class, 'nearby']);
 
-Route::get('cabenhs', [CabenhController::class, 'index'])->middleware('web');
 Route::get('cuahang_cchh', [CuahangCCHHController::class, 'index'])->middleware('web');
 Route::get('cuahang_cchh/voronoi', [CuahangCCHHController::class, 'voronoi'])->middleware('web');
-
-Route::get('thongke/px-f0', [ThongkeController::class, 'pxF0']);
-Route::get('thongke/nguon_ln', [ThongkeController::class, 'nguon_ln']);
-Route::get('thongke/noi_ph_by_px', [ThongkeController::class, 'noi_ph_by_px']);
 
 Route::get('phuongs', [CabenhController::class, 'phuongs']);
 Route::get('maps/builder', [MapsController::class, 'builder'])->middleware('web');

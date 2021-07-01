@@ -15,6 +15,7 @@ use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Panel;
 use OptimistDigital\NovaDetachedFilters\NovaDetachedFilters;
 
 class CuahangCCHH extends Resource
@@ -62,7 +63,6 @@ class CuahangCCHH extends Resource
      */
     public function fields(Request $request)
     {
-//        dd($this->phantuyens()->toRawSql());
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Map::make(__('Map'), 'geom'),
@@ -70,7 +70,13 @@ class CuahangCCHH extends Resource
             Text::make(__('app.ten_ch'), 'ten_ch')->sortable(),
             Text::make(__('app.diachi'), 'diachi')->limit($request->isResourceIndexRequest() ? 15 : 0)->tooltip(['content' => $this->ten_dd]),
             ...Helper::dynamicHcFields(),
+            Textarea::make(__('app.hanghoa'), 'hanghoa'),
             Textarea::make(__('app.ghichu'), 'ghichu'),
+            new Panel('Mua sắm trực tuyến', [
+                Text::make(__('app.web_shopping'), 'web_shopping')->hideFromIndex(),
+                Text::make(__('app.hotline_shopping'), 'hotline_shopping')->hideFromIndex(),
+                Text::make(__('app.app_shopping'), 'app_shopping')->hideFromIndex(),
+            ]),
             HasMany::make(__('app.phantuyen_hh'), 'phantuyens', \App\Nova\PhantuyenHH::class),
         ];
     }

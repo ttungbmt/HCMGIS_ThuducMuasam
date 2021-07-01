@@ -36,7 +36,7 @@ class SearchController extends Controller
             'status' => 'OK',
             'data' => $data,
             'meta' => [
-                
+
             ]
         ];
     }
