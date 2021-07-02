@@ -8,6 +8,8 @@ class MapsService {
     getLegend = () => {
         return axios.get('/api/maps/legend').then(({data}) => data);
     }
+
+    getHotlineShopping = () => axios.get('/api/hotline-shopping').then(({data}) => data.data);
 }
 
 const instance = new MapsService();

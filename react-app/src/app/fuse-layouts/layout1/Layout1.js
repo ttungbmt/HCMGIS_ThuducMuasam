@@ -26,6 +26,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Hidden from "@material-ui/core/Hidden";
 import ThongbaoDialog from "app/main/maps/views/nearBy/ThongbaoDialog";
+import HotlineShopping from "./components/HotlineShopping";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -79,7 +80,10 @@ function Layout1(props) {
                             <div className="flex flex-col flex-auto min-h-0 relative z-10 h-full">
                                 <FuseDialog/>
                                 {/*<FuseSuspense>{renderRoutes(routes)}</FuseSuspense>*/}
-                                <MapContent/>
+                                <Box className="relative h-full">
+                                    <MapContent/>
+                                    <HotlineShopping />
+                                </Box>
                                 {props.children}
                                 {!folded && (
                                     <Hidden lgUp>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\CabenhController;
 use App\Http\Controllers\API\CORSController;
 use App\Http\Controllers\API\CuahangCCHHController;
+use App\Http\Controllers\API\HotlineShoppingController;
 use App\Http\Controllers\API\MapsController;
 use App\Http\Controllers\API\PhongtoaPtController;
 use App\Http\Controllers\API\SearchController;
@@ -26,11 +27,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('search/nearby', [SearchController::class, 'nearby']);
-
+Route::get('hotline-shopping', [HotlineShoppingController::class, 'index'])->middleware('web');
 Route::get('cuahang_cchh', [CuahangCCHHController::class, 'index'])->middleware('web');
 Route::get('cuahang_cchh/voronoi', [CuahangCCHHController::class, 'voronoi'])->middleware('web');
 
-Route::get('phuongs', [CabenhController::class, 'phuongs']);
 Route::get('maps/builder', [MapsController::class, 'builder'])->middleware('web');
 Route::get('maps/legend', [MapsController::class, 'legend']);
 
