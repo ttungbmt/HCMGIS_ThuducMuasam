@@ -12,7 +12,6 @@ import useSWR from "swr";
 import MapsService from "app/services/mapsService/mapsService";
 import {isEmpty, sortBy} from "lodash";
 import {Table} from "app/components";
-import Badge from "@material-ui/core/Badge";
 import LocalMallIcon from '@material-ui/icons/LocalMall';
 
 const useStyles = makeStyles(theme => ({
@@ -115,7 +114,7 @@ function HotlineShopping() {
             </Box>
             <Dialog
                 fullScreen={fullScreen}
-                maxWidth={1200}
+                maxWidth={'lg'}
                 open={open}
                 onClose={handleClose}
                 aria-labelledby="responsive-dialog-title"

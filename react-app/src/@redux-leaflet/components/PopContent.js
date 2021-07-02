@@ -2,8 +2,21 @@ import {get, isEmpty, keys, includes, map, isArray} from 'lodash-es'
 import template from '../utils/template';
 import {useState} from "react";
 
-let toValue = (data, attr) => {
-    let value = get(data, attr)
+const formatByType = (text, type = 'text') => {
+    if(type === 'text') return text
+    else if(type === 'link') return text ? <a href={text} target="_blank" style={{color: '#2196F3'}}>{text}</a> : ''
+    return text
+}
+
+let toValue = (data, attribute) => {
+    let value = '',
+        type = 'text',
+        attr = attribute
+
+    if(includes(attribute, ':')){
+        type = attr.split(':')[0]
+        attr = attr.split(':')[1]
+    }
 
     if(includes(attr, '.')){
         let field = attr.split('.').shift(),
@@ -11,10 +24,10 @@ let toValue = (data, attr) => {
 
         value = JSON.parse(get(data, field))
 
-        return get(value, path, '')
+        return formatByType(get(value, path, ''), type)
     }
 
-    return value
+    return formatByType(get(data, attr), type)
 }
 
 function Action({data, type, ...props}){
