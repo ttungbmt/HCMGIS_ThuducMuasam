@@ -36,4 +36,5 @@ return [
     'hotline_shopping' => 'Hotline',
     'app_shopping' => 'App',
     'phanloai' => 'Phân loại',
+    'quanly' => 'Quản lý',
 ];
