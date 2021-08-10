@@ -32,8 +32,8 @@ use Spatie\Tags\Tag;
 //});
 
 Route::get('/', function () {
-    if(Str::contains($_SERVER['HTTP_HOST'], ['hcmgis.vn']) && !isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
-        return redirect('https://thuduc-muasam.hcmgis.vn');
+    if(Str::contains($_SERVER['HTTP_HOST'], ['hcmgis.vn']) && data_get($_SERVER, 'HTTP_X_FORWARDED_PROTO') === 'http') {
+        return redirect(env('APP_URL'));
     };
 
     return File::get('vendor/maps/index.html');
