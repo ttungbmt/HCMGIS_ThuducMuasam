@@ -80,9 +80,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function gate()
     {
         Gate::define('viewNova', function ($user) {
-            return in_array($user->email, [
-                //
-            ]);
+            return true;
         });
     }
 
@@ -127,7 +125,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             new \ChrisWare\NovaBreadcrumbs\NovaBreadcrumbs,
         ]);
 
-//        dd(auth()->user()->can('menu-builder'), $tools->merge($adminTools)->all());
 
         return $adminTools->merge($tools)->all();
     }
