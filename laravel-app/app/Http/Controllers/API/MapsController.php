@@ -91,7 +91,7 @@ class MapsController extends Controller
     {
         return [
             'app' => [
-                'name' => env('APP_NAME', 'Thủ Đức Mua sắm'),
+                'name' => env('APP_NAME', 'Củ Chi Mua sắm'),
             ],
             'layers' => $this->getLayers(),
             'config' => config('nova-map.config'),

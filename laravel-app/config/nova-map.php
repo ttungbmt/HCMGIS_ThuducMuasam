@@ -2,7 +2,7 @@
 
 return [
     'config' => [
-        'center' => [10.8209134762129, 106.78882598876955],
+        'center' => [11.009887, 106.476820],
         'zoom' => 13,
         'zoomControl' => false
     ],
@@ -17,7 +17,7 @@ return [
         [
             'control' => 'basemap',
             'type' => 'tile',
-            'title' => 'Thủ Đức Maps',
+            'title' => 'Củ Chi Maps',
             'options' => ['url' => 'http://thuduc-maps.hcmgis.vn//thuducserver/gwc/service/wmts?layer=thuduc:thuduc_maps&style=&tilematrixset=EPSG:900913&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image/png&TileMatrix=EPSG:900913:{z}&TileCol={x}&TileRow={y}'],
         ],
         [
